@@ -3,17 +3,17 @@
 In this project we have created a sample EMR(Elastic MapReduce) cluster using Amazon Web Service Console. The project is Basically "the Analysis of Log requests". For this project we have used sample data from Amazon CloudFront log files and also used sample Hive script to analyze the logs. 
 The sample cluster that you create will be running in a live environment and you will be charged for the resources that you use. This tutorial should take an hour or less, so the charges that you incur should be minimal.
 
-# Step 1
-1. you must have AWS account. You can also create a account if you don't have one using the following link
+# Step 1 :you must have AWS account. 
+You can also create a account if you don't have one using the following link
 http://aws.amazon.com/ and choose create account.
  
-2. Create Amazon S3 bucket. 
+ # Step 2 :Create Amazon S3 bucket. 
 S3-simple storage service. S3 is used to store out log files, output and we can also store inputs, scripts and we can store as much as data we want. To create a bucket, simple got to services from AWS console homePage and choose S3. Then create a bucket.Once you created the bucket you can enter the bucket and create folders like output and logs. For this project we are using only logs and output folders. Make sure the output folder is empty. 
 
-3. Create EC2 KeyPairs 
+# Step 3 :Create EC2 KeyPairs 
 EC2 is a virtual server on AWS to run applications. We must have keypairs for this project to connect to the nodes in your cluster over a secure channel using the Secure Shell (SSH) protocol.To create EC2, go to EC2 homePage and on the left panel, select Network and Security. From there, select keypairs and create. If you have already created keypairs then skip this step. Note: The keypairs which we download are the only copy and keep it in secure place.
 
-4. Launch Sample Cluster
+# Step 4 : Launch Sample Cluster
 Sign in to the AWS Management Console and open the Amazon EMR console at https://console.aws.amazon.com/elasticmapreduce/.
   Choose Create cluster.
   On the Quick cluster configuration page, accept the default values except for the following fields:
@@ -22,7 +22,7 @@ Sign in to the AWS Management Console and open the Amazon EMR console at https:/
   Choose Create cluster.
   Proceed to the next step.
 
-5. Sample Data and Scripts
+# Step 5 :Sample Data and Scripts
 For this project, we are taking sample data and hive scripts from AWS.The sample data is a series of Amazon CloudFront web distribution log files. The data is stored in Amazon S3 at s3://region.elasticmapreduce.samples where region is your region.
 
 Each entry in the CloudFront log files provides details about a single user request in the following format:
@@ -65,7 +65,7 @@ The HiveQL query looks like the following:
 
 SELECT os, COUNT(*) count FROM cloudfront_logs WHERE date BETWEEN '2014-07-05' AND '2014-08-05' GROUP BY os;
 
-6. Process the sample Cluster
+# Step 6 :Process the sample Cluster
 Use the Add Step option to submit your Hive script to the cluster using the console. The Hive script and sample data used by the script have been uploaded to Amazon S3 for you.
 
 To submit your Hive script as a step
@@ -92,7 +92,7 @@ Choose Add. The step appears in the console with a status of Pending.
 
 The status of the step changes from Pending to Running to Completed as the step runs. To update the status, choose Refresh above the Actions column. The step runs in approximately 1 minute.
 
-7. View results
+# Step 7 : View results
 
 After the step completes successfully, the query output produced by the Hive script is stored in the Amazon S3 output folder that you specified when you submitted the step.
 
@@ -109,7 +109,7 @@ Open the file using a text editor such as WordPad (Windows), TextEdit (Mac OS), 
 
 Proceed to the next step.
 
-8. Reset your environment
+# Step 8 : Reset your environment
 
 Delete the amazon S3 bucket.
 Terminate the sample EMR cluster
